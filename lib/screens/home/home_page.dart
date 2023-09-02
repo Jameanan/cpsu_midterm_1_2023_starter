@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-// TODO: ใส่รหัสนักศึกษาที่ค่าสตริงนี้
-const studentId = 'Student ID';
+const studentId = '630710777';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
