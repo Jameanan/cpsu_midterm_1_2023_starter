@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-//
 const studentId = '630710777';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           ),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/bg_colorful.jpg"),
+              image: AssetImage("assets/image/bg_colorful.jpg"),
               opacity: 0.6,
               fit: BoxFit.cover,
             ),
@@ -42,77 +41,57 @@ class _HomePageState extends State<HomePage> {
                   textAlign: TextAlign.center,
                   style: textTheme.headlineSmall!.copyWith(
                       fontWeight: FontWeight.bold, color: Colors.black87)),
-              Spacer(),
+              Expanded(child:
               Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
+                padding: const EdgeInsets.all(60.0),
+                child: Container(
+                  decoration: BoxDecoration(border: Border.all(
+                      color: Colors.black,
+                      style: BorderStyle.solid,
+                  ),
+                      borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+              ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
                   children: [
-                    //icon: Icons.favorite
-                    //icon: Icons.star
-                    //icon: Icons.rocket_launch
-                    //icon: Icons.pets
                     Expanded(
                         child: _CategoryButton(
-                            image: 'assets/images/a.png',
-                            name: 'Berlin')),
+                            image: 'assets/image/left.png')),
                     SizedBox(width: 30.0),
                     Expanded(
                         child: _CategoryButton(
-                            name: 'London',
-                            image: 'assets/images/b.png')),
+                            image: 'assets/image/right.png')),
                   ],
                 ),
               ),
-              Spacer(),
-              _buildButtonPanel(),
-              SizedBox(height: 16.0),
             ],
           ),
         ),
       ),
     );
-
   }
 }
-  Container _CategoryButton({
-    required String name,
-    required String image,
-    //required this.icon,
-  }) {
-    return CategoryButton(name, image);
-  }
+Container _CategoryButton(
+    {
+      required String image}) {
+  return CategoryBotton(image);
+}
+Container CategoryBotton(String image){
+  return Container(
 
-
-  Container CategoryButton(String name, String image) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-              color: Colors.black,
-              style: BorderStyle.solid),
-          borderRadius:
-          BorderRadius.circular(20.0)
-      ),
-      child: Row(
-        children: [
-          //Icon(Icons.icon ,size: 50.0,color: color,),
-          Image.asset(image, width: 60.0, height: 60.0,),
-          Text(name,
-              style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w900
-              )
-          ),
-        ],
-      ),
-    );
-  }
-
-/*_buildQuizView() {
-  // TODO: build UI
-  return Center(child: Text('TODO: build UI'));
-}*/
-
-_buildButtonPanel() {
-  // TODO: build UI
-  return Center(child: Text('TODO: build UI'));
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        //Icon(Icons.icon ,size: 50.0,color: color,),
+        Image.asset(image,width: 10.0,height: 10.0),
+      ],
+    ),
+    //width: 120.0,
+    height: 50,
+    decoration: BoxDecoration(border: Border.all(color: Colors.black,style: BorderStyle.solid),borderRadius: BorderRadius.circular(20.0)),
+  );
 }
